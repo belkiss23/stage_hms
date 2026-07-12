@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: replica
+    schema: replica
+
+    tables:
+
+      # =====================
+      # LABORATORY
+      # =====================
+
+      - name: patient
+      - name: lab_request
+      - name: referral_partner
+      - name: referring_doctor
+      - name: requested_test
+      - name: outsourcing
+      - name: lab_sample
+      - name: sample_type
+      - name: lab_result
+      - name: parameter_result
+      - name: test
+      - name: test_parameter
+      - name: panel
+      - name: method
+      # - name: formula
+      - name: equipment
+      - name: biologist
+      - name: request_status
+      - name: region
+
+      # =====================
+      # HR
+      # =====================
+
+      - name: employee
+      - name: department
+      - name: position
+      - name: contract
+      - name: payroll
+      - name: attendance
+      - name: leave_request
+      - name: leave
+      - name: absence_declaration
+      - name: absence_reason
+      - name: employee_assignment
+      - name: training
+      - name: training_participation
+      - name: loan_assignment
+      - name: loan_status
+      - name: recruitment
+
+      # =====================
+      # SUPPLY CHAIN
+      # =====================
+
+      - name: product
+      - name: customer
+      - name: supplier
+      - name: sales
+      - name: purchase
+      - name: inventory
+      - name: delivery
+      - name: receipt
+      - name: customer_request
+      - name: proforma_request
+      - name: payment
+      - name: payment_method
+      - name: bank_transaction
+      - name: cash_transaction
+      - name: financial_transaction_type
+      - name: inventory_transaction_type
+      - name: warehouse
+      - name: storage_location

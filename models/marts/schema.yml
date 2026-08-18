@@ -1,0 +1,75 @@
+version: 2
+
+models:
+
+  - name: dim_patient
+    columns:
+      - name: sk_patient
+        tests:
+          - not_null
+          - unique
+
+      - name: nk_patient
+        tests:
+          - not_null
+
+
+  - name: dim_employee
+    columns:
+      - name: sk_employee
+        tests:
+          - not_null
+          - unique
+
+      - name: nk_employee
+        tests:
+          - not_null
+
+
+  - name: dim_product
+    columns:
+      - name: sk_product
+        tests:
+          - not_null
+          - unique
+
+      - name: nk_product
+        tests:
+          - not_null
+
+
+  - name: fact_sales
+    columns:
+      - name: fk_date
+        tests:
+          - not_null
+
+      - name: fk_product
+        tests:
+          - not_null
+
+      - name: fk_customer
+        tests:
+          - not_null
+
+
+  - name: fact_payroll
+    columns:
+      - name: fk_date
+        tests:
+          - not_null
+
+      - name: fk_employee
+        tests:
+          - not_null
+
+
+  - name: fact_lab_result
+    columns:
+      - name: fk_patient
+        tests:
+          - not_null
+
+      - name: fk_test
+        tests:
+          - not_null

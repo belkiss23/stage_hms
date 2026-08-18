@@ -1,14 +1,16 @@
 SELECT
-    fk_date,
+    request_line.id AS nk_requested_test,
+    request_line.request_id AS nk_lab_request,
 
-    fk_patient,
-    fk_test,
-    fk_panel,
+    test_dim.sk_test AS fk_test,
 
-    fk_referring_doctor,
-    fk_referral_partner,
-    fk_region,
+    request_line.quantity,
+    request_line.sale_price,
+    request_line.amount_total,
+    request_line.instruction
 
-    requested_test_count
+FROM {{ source('replica', 'laboratory_request_line') }} AS request_line
 
-FROM {{ source('replica', 'requested_test') }}
+LEFT JOIN {{ ref('dim_test') }} AS test_dim
+    ON request_line.test_id =
+       test_dim.nk_test

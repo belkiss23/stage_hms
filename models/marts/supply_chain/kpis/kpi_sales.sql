@@ -1,21 +1,21 @@
 WITH sales_agg AS (
 
     SELECT
-        id_date,
-        id_produit,
-        id_client,
+        fk_date,
+        fk_product,
+        fk_customer,
 
-        SUM(montant_total) AS total_sales_amount,
-        SUM(quantite_vendue) AS total_quantity_sold,
-        SUM(marge) AS total_profit_margin,
+        SUM(total_amount) AS total_sales_amount,
+        SUM(quantity_sold) AS total_quantity_sold,
+        SUM(profit_margin) AS total_profit_margin,
         COUNT(*) AS sales_count
 
     FROM {{ ref('fact_sales') }}
 
     GROUP BY
-        id_date,
-        id_produit,
-        id_client
+        fk_date,
+        fk_product,
+        fk_customer
 )
 
 SELECT
@@ -36,7 +36,7 @@ SELECT
     total_sales_amount
         / NULLIF(
             SUM(total_sales_amount)
-                OVER (PARTITION BY id_date),
+                OVER (PARTITION BY fk_date),
             0
         )
         AS product_contribution_ratio,
@@ -45,16 +45,16 @@ SELECT
         total_sales_amount
         - LAG(total_sales_amount)
             OVER (
-                PARTITION BY id_produit
-                ORDER BY id_date
+                PARTITION BY fk_product
+                ORDER BY fk_date
             )
     )
     /
     NULLIF(
         LAG(total_sales_amount)
             OVER (
-                PARTITION BY id_produit
-                ORDER BY id_date
+                PARTITION BY fk_product
+                ORDER BY fk_date
             ),
         0
     )

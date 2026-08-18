@@ -10,25 +10,26 @@ sources:
       # LABORATORY
       # =====================
 
-      - name: patient
+      - name: acs_lab_test
+      - name: acs_lab_test_uom
+      - name: acs_laboratory
+      - name: acs_laboratory_request
+      - name: acs_laboratory_sample_type
+      - name: acs_patient_laboratory_sample
+      - name: hms_patient
+      - name: hms_physician
+      - name: lab_bilan
       - name: lab_request
-      - name: referral_partner
-      - name: referring_doctor
-      - name: requested_test
-      - name: outsourcing
-      - name: lab_sample
-      - name: sample_type
-      - name: lab_result
-      - name: parameter_result
-      - name: test
-      - name: test_parameter
-      - name: panel
-      - name: method
-      # - name: formula
-      - name: equipment
-      - name: biologist
-      - name: request_status
-      - name: region
+      - name: lab_test_critearea
+      - name: lab_test_criteria_template
+      - name: lab_test_normal_range
+      - name: lab_unit
+      - name: laboratory_equipements
+      - name: laboratory_group
+      - name: laboratory_group_line
+      - name: laboratory_request_line
+      - name: patient_laboratory_test
+      - name: res_partner
 
       # =====================
       # HR
@@ -49,7 +50,7 @@ sources:
       - name: training_participation
       - name: loan_assignment
       - name: loan_status
-      - name: recruitment
+      - name: candidature
 
       # =====================
       # SUPPLY CHAIN
@@ -73,3 +74,5 @@ sources:
       - name: inventory_transaction_type
       - name: warehouse
       - name: storage_location
+      - name: bank
+      - name: cash

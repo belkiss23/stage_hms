@@ -1,9 +1,9 @@
 SELECT
-    nk_equipment,
+    {{ dbt_utils.generate_surrogate_key(['id']) }} AS sk_equipment,
+    id AS nk_equipment,
 
-    name_equipment,
-    type_equipment,
-    brand,
-    location
-    
-FROM {{ source('replica', 'equipment') }}
+    name AS equipment_name,
+    ip_address,
+    status AS equipment_status
+
+FROM {{ source('replica', 'laboratory_equipements') }}
